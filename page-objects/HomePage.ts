@@ -73,9 +73,10 @@ export class HomePage {
   async clickSimplyRightCheckingOpenAccount() {
     const [newWindow] = await Promise.all([
       this.page.waitForEvent('popup'),
-      await this.simplyRightCheckingOpenAccountLink.click() 
+      await this.simplyRightCheckingOpenAccountLink.click(),
     ])
-    console.log(newWindow.url())
-    await expect(newWindow.url()).toContain('https://secureopen.santanderbank.com/apps/servlet/SmartForm.html?formCode=sbnadao&product=SimplyRightChecking')
+    await expect(newWindow.url()).toContain(
+      'https://secureopen.santanderbank.com/apps/servlet/SmartForm.html?formCode=sbnadao&product=SimplyRightChecking'
+    )
   }
 }
